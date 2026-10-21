@@ -2,8 +2,13 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2.2 Les mesures de tendance centrale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MDM4U - 2.2 Les mesures de tendance centrale</title>
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- KaTeX pour afficher les formules -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -12,134 +17,168 @@
     onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\(', right: '\\)', display: false}]});"></script>
 
   <style>
-    :root {
-      --bleu: #2b4c7e;
-      --bleu-pale: #e8eef7;
-      --texte: #222;
-      --fond: #f7f8fa;
-      --carte: #ffffff;
-    }
-    * { box-sizing: border-box; }
     body {
+      font-family: "Roboto", sans-serif;
+    }
+    .w3-bar-block .w3-bar-item {
+      padding: 16px;
+      font-weight: bold;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 1000px;
+      margin-top: 24px;
+    }
+    .info-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .info-card h3 {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--fond);
-      color: var(--texte);
-      line-height: 1.6;
+      padding: 12px 16px;
+      font-size: 18px;
     }
-    header {
-      background: var(--bleu);
-      color: white;
-      padding: 32px 16px;
-      text-align: center;
-    }
-    header h1 { margin: 0; font-size: 1.9rem; }
-    header p { margin: 8px 0 0; opacity: 0.85; }
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 24px 16px 48px;
-    }
-    .carte {
-      background: var(--carte);
-      border-radius: 10px;
-      padding: 20px 24px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      border-left: 5px solid var(--bleu);
-    }
-    .carte h2 {
-      margin-top: 0;
-      color: var(--bleu);
+    .info-card .contenu {
+      padding: 8px 16px 16px;
     }
     .formule {
-      background: var(--bleu-pale);
-      border-radius: 8px;
-      padding: 8px 12px;
-      margin: 10px 0;
+      border-radius: 6px;
+      padding: 4px 12px;
+      margin: 8px 0;
       overflow-x: auto;
     }
-    .sous-titre { font-weight: bold; margin-bottom: 0; }
-    ul { padding-left: 22px; }
-    .bouton-zone { text-align: center; margin: 32px 0 8px; }
-    .bouton {
-      display: inline-block;
-      background: var(--bleu);
-      color: white;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-size: 1.05rem;
+    .sous-titre {
       font-weight: bold;
-      transition: background 0.2s;
-    }
-    .bouton:hover { background: #1d3557; }
-    footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #666;
-      padding-bottom: 24px;
+      margin-bottom: 0;
     }
   </style>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
 
-  <header>
-    <h1>2.2 Les mesures de tendance centrale</h1>
-    <p>MDM4U – Gestion de données</p>
-  </header>
+  <!-- Barre de navigation -->
+  <div id="nav-placeholder"></div>
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("nav.html");
+    });
+  </script>
+  <!-- Fin de la barre de navigation -->
 
-  <main>
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
-    <section class="carte">
-      <h2>Moyenne</h2>
-      <p>La valeur « équilibrée » des données. Tu additionnes tout, puis tu divises par le nombre de données.</p>
+  <div class="w3-main" style="margin-left:250px;">
 
-      <p class="sous-titre">Données simples :</p>
-      <div class="formule">$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$</div>
-
-      <p class="sous-titre">Avec effectifs :</p>
-      <div class="formule">$$\bar{x} = \frac{\sum_{i=1}^{n} x_i \cdot f_i}{\sum_{i=1}^{n} f_i}$$</div>
-
-      <p>où :</p>
-      <ul>
-        <li>\(\bar{x}\) = la moyenne</li>
-        <li>\(\Sigma\) = la somme (additionne tout, de \(i = 1\) jusqu'à \(n\))</li>
-        <li>\(x_i\) = chaque donnée (ou chaque valeur / point milieu de classe)</li>
-        <li>\(f_i\) = l'effectif (fréquence) de chaque valeur</li>
-        <li>\(n\) = le nombre de données (ou de lignes du tableau)</li>
-      </ul>
-    </section>
-
-    <section class="carte">
-      <h2>Médiane</h2>
-      <p>La donnée du milieu quand les données sont <strong>en ordre</strong>. La moitié des données est en dessous et l'autre moitié au-dessus.</p>
-
-      <div class="formule">$$\text{Position} = \frac{n + 1}{2}$$</div>
-
-      <p>où :</p>
-      <ul>
-        <li>\(n\) = le nombre total de données (avec un tableau, \(n = \sum f_i\))</li>
-      </ul>
-      <p>Si \(n\) est pair, tu fais la moyenne des deux données du milieu.</p>
-    </section>
-
-    <section class="carte">
-      <h2>Mode</h2>
-      <p>La valeur qui revient <strong>le plus souvent</strong> (celle avec le plus grand effectif). Il peut y en avoir un seul, plusieurs (bimodal) ou aucun.</p>
-    </section>
-
-    <div class="bouton-zone">
-      <a class="bouton" href="https://docs.google.com/document/d/1A8O8UH7kcdbLun-B3QXGE-KqIiuPQ8dnnQJw1cag3i0/edit?usp=sharing" target="_blank" rel="noopener">
-        Voir mon travail 2.2 (Google Docs)
-      </a>
+    <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+      <p>
+        <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+        <span id="myIntro" class="w3-hide">MDM4U</span>
+      </p>
     </div>
 
-  </main>
+    <header class="w3-container w3-theme" style="padding:64px 32px">
+      <h1 class="w3-xxxlarge">2.2 - Les mesures de tendance centrale</h1>
+    </header>
 
-  <footer>
-    MDM4U – Portfolio de Sam
-  </footer>
+    <div class="w3-container" style="padding:32px">
+
+      <!-- Tu peux complètement modifier le contenu ci-dessous -->
+
+      <h1>Les mesures de tendance centrale</h1>
+      <p>Voici les définitions et les formules de la moyenne, de la médiane et du mode.</p>
+
+      <div class="info-grid">
+
+        <div class="info-card w3-card">
+          <h3 class="w3-theme-d1">Moyenne</h3>
+          <div class="contenu">
+            <p>La valeur « équilibrée » des données. Tu additionnes tout, puis tu divises par le nombre de données.</p>
+
+            <p class="sous-titre">Données simples :</p>
+            <div class="formule w3-theme-l4">$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$</div>
+
+            <p class="sous-titre">Avec effectifs :</p>
+            <div class="formule w3-theme-l4">$$\bar{x} = \frac{\sum_{i=1}^{n} x_i \cdot f_i}{\sum_{i=1}^{n} f_i}$$</div>
+
+            <p>où :</p>
+            <ul>
+              <li>\(\bar{x}\) = la moyenne</li>
+              <li>\(\Sigma\) = la somme (additionne tout, de \(i = 1\) jusqu'à \(n\))</li>
+              <li>\(x_i\) = chaque donnée (ou chaque valeur / point milieu de classe)</li>
+              <li>\(f_i\) = l'effectif (fréquence) de chaque valeur</li>
+              <li>\(n\) = le nombre de données (ou de lignes du tableau)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="info-card w3-card">
+          <h3 class="w3-theme-d1">Médiane</h3>
+          <div class="contenu">
+            <p>La donnée du milieu quand les données sont <strong>en ordre</strong>. La moitié des données est en dessous et l'autre moitié au-dessus.</p>
+
+            <div class="formule w3-theme-l4">$$\text{Position} = \frac{n + 1}{2}$$</div>
+
+            <p>où :</p>
+            <ul>
+              <li>\(n\) = le nombre total de données (avec un tableau, \(n = \sum f_i\))</li>
+            </ul>
+            <p>Si \(n\) est pair, tu fais la moyenne des deux données du milieu.</p>
+          </div>
+        </div>
+
+        <div class="info-card w3-card">
+          <h3 class="w3-theme-d1">Mode</h3>
+          <div class="contenu">
+            <p>La valeur qui revient <strong>le plus souvent</strong> (celle avec le plus grand effectif). Il peut y en avoir un seul, plusieurs (bimodal) ou aucun.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <p style="margin-top:32px">
+        <a href="https://docs.google.com/document/d/1A8O8UH7kcdbLun-B3QXGE-KqIiuPQ8dnnQJw1cag3i0/edit?usp=sharing"
+           target="_blank" rel="noopener"
+           class="w3-button w3-theme w3-round-large w3-large">
+          <i class="fa fa-file-text-o"></i> Voir mon travail 2.2 (Google Docs)
+        </a>
+      </p>
+
+      <!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+
+    </div>
+
+    <footer class="w3-container w3-theme" style="padding:32px">
+      <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    window.onscroll = function () { myFunction(); };
+    function myFunction() {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
+        document.getElementById("myIntro").classList.add("w3-show-inline-block");
+      } else {
+        document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+        document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+      }
+    }
+  </script>
 
 </body>
 </html>
