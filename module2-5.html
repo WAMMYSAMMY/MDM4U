@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MDM4U - 2.5 Les diagrammes de dispersion</title>
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+    }
+    .w3-bar-block .w3-bar-item {
+      padding: 16px;
+      font-weight: bold;
+    }
+    .graph-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin-top: 24px;
+    }
+    .graph-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .graph-card h3 {
+      margin: 0;
+      padding: 12px 16px;
+      font-size: 18px;
+    }
+    .graph-card iframe {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border: 0;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+  <!-- Barre de navigation -->
+  <div id="nav-placeholder"></div>
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("nav.html");
+    });
+  </script>
+  <!-- Fin de la barre de navigation -->
+
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+  <div class="w3-main" style="margin-left:250px;">
+
+    <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+      <p>
+        <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+        <span id="myIntro" class="w3-hide">MDM4U</span>
+      </p>
+    </div>
+
+    <header class="w3-container w3-theme" style="padding:64px 32px">
+      <h1 class="w3-xxxlarge">2.5 - Les diagrammes de dispersion</h1>
+    </header>
+
+    <div class="w3-container" style="padding:32px">
+
+      <!-- Tu peux complètement modifier le contenu ci-dessous -->
+
+      <h1>Les diagrammes de dispersion</h1>
+      <p>Les trois diagrammes de dispersion ci-dessous ont été créés avec Desmos.</p>
+
+      <div class="graph-grid">
+
+        <div class="graph-card w3-card">
+          <h3 class="w3-theme-d1">Tableau 1. La quantité d'essence sans plomb vendue selon le prix</h3>
+          <iframe src="https://www.desmos.com/calculator/c2jihrshoe?embed" title="La quantité d'essence sans plomb vendue selon le prix"></iframe>
+        </div>
+
+        <div class="graph-card w3-card">
+          <h3 class="w3-theme-d1">Tableau 2. La taille d'un groupe de pompiers volontaires</h3>
+          <iframe src="https://www.desmos.com/calculator/bvpchxgyju?embed" title="La taille d'un groupe de pompiers volontaires"></iframe>
+        </div>
+
+        <div class="graph-card w3-card">
+          <h3 class="w3-theme-d1">Tableau 3. Le nombre de points marqués selon les minutes de jeu pour une équipe de basketball</h3>
+          <iframe src="https://www.desmos.com/calculator/oeen11efa6?embed" title="Le nombre de points marqués selon les minutes de jeu"></iframe>
+        </div>
+
+      </div>
+
+      <!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+
+    </div>
+
+    <footer class="w3-container w3-theme" style="padding:32px">
+      <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    window.onscroll = function () { myFunction(); };
+    function myFunction() {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
+        document.getElementById("myIntro").classList.add("w3-show-inline-block");
+      } else {
+        document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+        document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+      }
+    }
+  </script>
+
+</body>
+</html>
