@@ -41,6 +41,12 @@
       aspect-ratio: 1 / 1;
       border: 0;
     }
+    .explication {
+      padding: 12px 16px 16px;
+    }
+    .explication p {
+      margin: 6px 0;
+    }
   </style>
 
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -83,16 +89,28 @@
         <div class="graph-card w3-card">
           <h3 class="w3-theme-d1">Tableau 1. La quantité d'essence sans plomb vendue selon le prix</h3>
           <iframe src="https://www.desmos.com/calculator/c2jihrshoe?embed" title="La quantité d'essence sans plomb vendue selon le prix"></iframe>
+          <div class="explication">
+            <p><strong>Coefficient de corrélation : r ≈ −0,90</strong></p>
+            <p>C'est une corrélation <strong>forte</strong> et <strong>négative</strong>. Plus le prix de l'essence monte, moins les gens en achètent. Les points descendent vers la droite et restent assez proches d'une ligne.</p>
+          </div>
         </div>
 
         <div class="graph-card w3-card">
           <h3 class="w3-theme-d1">Tableau 2. La taille d'un groupe de pompiers volontaires</h3>
           <iframe src="https://www.desmos.com/calculator/bvpchxgyju?embed" title="La taille d'un groupe de pompiers volontaires"></iframe>
+          <div class="explication">
+            <p><strong>Coefficient de corrélation : r ≈ 0,40</strong></p>
+            <p>C'est une corrélation <strong>modérée</strong> et <strong>positive</strong>. En général, les pompiers plus grands pèsent un peu plus, mais les points sont assez dispersés. La taille ne permet donc pas de bien prédire le poids.</p>
+          </div>
         </div>
 
         <div class="graph-card w3-card">
           <h3 class="w3-theme-d1">Tableau 3. Le nombre de points marqués selon les minutes de jeu pour une équipe de basketball</h3>
           <iframe src="https://www.desmos.com/calculator/oeen11efa6?embed" title="Le nombre de points marqués selon les minutes de jeu"></iframe>
+          <div class="explication">
+            <p><strong>Coefficient de corrélation : r ≈ 0,91</strong></p>
+            <p>C'est une corrélation <strong>forte</strong> et <strong>positive</strong>. Plus une joueuse joue de minutes, plus elle marque de points. Les points montent vers la droite et suivent bien une ligne.</p>
+          </div>
         </div>
 
       </div>
