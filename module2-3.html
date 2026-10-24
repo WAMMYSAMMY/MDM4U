@@ -50,13 +50,6 @@
       margin: 8px 0;
       overflow-x: auto;
     }
-    .sous-titre {
-      font-weight: bold;
-      margin-bottom: 0;
-    }
-    .tableau-exemple {
-      max-width: 420px;
-    }
     .sources {
       padding-left: 0;
     }
@@ -102,8 +95,7 @@
       <!-- Tu peux complètement modifier le contenu ci-dessous -->
 
       <h1>Les mesures de dispersion</h1>
-      <p>Les mesures de tendance centrale (moyenne, médiane, mode) nous disent où se trouve le « centre » des données. Mais elles ne disent pas si les données sont <strong>proches les unes des autres</strong> ou <strong>très étalées</strong>.</p>
-      <p>Les mesures de dispersion servent à mesurer à quel point les données sont <strong>dispersées</strong> (étalées). Par exemple, deux classes peuvent avoir la même moyenne de 70 %, mais dans une classe, toutes les notes sont entre 65 % et 75 %, alors que dans l'autre, elles vont de 30 % à 100 %. La dispersion nous permet de voir cette différence.</p>
+      <p>Les mesures de dispersion servent à voir à quel point les données sont étalées. La moyenne ou la médiane nous montre le centre des données, mais pas si les données sont proches les unes des autres ou très éloignées. C'est pour ça qu'on a besoin des mesures de dispersion.</p>
 
       <h2>Les méthodes de mesure de dispersion</h2>
 
@@ -112,107 +104,51 @@
         <div class="info-card w3-card">
           <h3 class="w3-theme-d1">L'étendue</h3>
           <div class="contenu">
-            <p>L'étendue, c'est la différence entre la plus grande et la plus petite valeur. C'est la mesure de dispersion la plus simple.</p>
+            <p>L'étendue, c'est la différence entre la plus grande valeur et la plus petite valeur. C'est la façon la plus simple de mesurer la dispersion, mais une seule valeur très haute ou très basse peut la changer beaucoup.</p>
             <div class="formule w3-theme-l4">$$\text{Étendue} = \text{valeur maximale} - \text{valeur minimale}$$</div>
-            <p>Par contre, elle utilise juste deux valeurs. Une seule valeur aberrante (très haute ou très basse) peut donc la rendre beaucoup plus grande.</p>
           </div>
         </div>
 
         <div class="info-card w3-card">
           <h3 class="w3-theme-d1">Les quartiles</h3>
           <div class="contenu">
-            <p>Les quartiles séparent les données <strong>en ordre</strong> en quatre parties égales. Chaque partie contient environ 25 % des données.</p>
+            <p>Les quartiles séparent les données en ordre en quatre parties égales, avec environ 25 % des données dans chaque partie.</p>
             <ul>
-              <li><strong>Q1 (premier quartile)</strong> : la médiane de la moitié du bas. 25 % des données sont en dessous.</li>
-              <li><strong>Q2 (deuxième quartile)</strong> : la médiane de toutes les données. 50 % des données sont en dessous.</li>
-              <li><strong>Q3 (troisième quartile)</strong> : la médiane de la moitié du haut. 75 % des données sont en dessous.</li>
+              <li><strong>Q1</strong> : la médiane de la moitié du bas.</li>
+              <li><strong>Q2</strong> : la médiane de toutes les données.</li>
+              <li><strong>Q3</strong> : la médiane de la moitié du haut.</li>
             </ul>
-            <p>Si le nombre de données est impair, on ne met pas la médiane (Q2) dans les moitiés quand on calcule Q1 et Q3.</p>
           </div>
         </div>
 
         <div class="info-card w3-card">
           <h3 class="w3-theme-d1">L'écart interquartile</h3>
           <div class="contenu">
-            <p>L'écart interquartile (ou intervalle interquartile), c'est la différence entre le troisième et le premier quartile. Il mesure l'étendue des 50 % des données du milieu.</p>
+            <p>L'écart interquartile, c'est la différence entre Q3 et Q1. Il montre l'étendue des 50 % des données du milieu. Il est souvent plus fiable que l'étendue parce que les valeurs extrêmes ne le changent presque pas.</p>
             <div class="formule w3-theme-l4">$$\text{Écart interquartile} = Q_3 - Q_1$$</div>
-            <p>Comme il ignore le 25 % le plus bas et le 25 % le plus haut, il n'est presque pas affecté par les valeurs aberrantes. C'est pour ça qu'il est souvent plus fiable que l'étendue.</p>
           </div>
         </div>
 
         <div class="info-card w3-card">
           <h3 class="w3-theme-d1">L'écart type</h3>
           <div class="contenu">
-            <p>L'écart type mesure, en moyenne, à quelle distance les données sont de la moyenne.</p>
-            <ul>
-              <li><strong>Petit écart type</strong> : les données sont regroupées proche de la moyenne.</li>
-              <li><strong>Grand écart type</strong> : les données sont très étalées.</li>
-            </ul>
-            <p>Contrairement à l'étendue et aux quartiles, l'écart type utilise <strong>toutes</strong> les données. La <strong>variance</strong>, c'est l'écart type au carré.</p>
-            <p>On utilise \(\sigma\) pour une <strong>population</strong> et \(s\) pour un <strong>échantillon</strong>.</p>
+            <p>L'écart type montre, en moyenne, à quelle distance les données sont de la moyenne. Si l'écart type est petit, les données sont proches de la moyenne. S'il est grand, les données sont plus étalées. Contrairement à l'étendue, il utilise toutes les données.</p>
           </div>
         </div>
 
       </div>
 
       <h2 style="margin-top:40px">Comment calculer l'écart type?</h2>
-
-      <div class="info-grid">
-
-        <div class="info-card w3-card">
-          <h3 class="w3-theme-d1">Les formules</h3>
-          <div class="contenu">
-            <p class="sous-titre">Population :</p>
-            <div class="formule w3-theme-l4">$$\sigma = \sqrt{\frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}}$$</div>
-
-            <p class="sous-titre">Échantillon :</p>
-            <div class="formule w3-theme-l4">$$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}$$</div>
-
-            <p>où :</p>
-            <ul>
-              <li>\(\sigma\) ou \(s\) = l'écart type</li>
-              <li>\(x_i\) = chaque donnée</li>
-              <li>\(\mu\) ou \(\bar{x}\) = la moyenne</li>
-              <li>\(N\) ou \(n\) = le nombre de données</li>
-            </ul>
-            <p>Pour un échantillon, on divise par \(n - 1\) au lieu de \(n\).</p>
-          </div>
-        </div>
-
-        <div class="info-card w3-card">
-          <h3 class="w3-theme-d1">Les étapes (exemple : 2, 4, 6, 8)</h3>
-          <div class="contenu">
-            <ol>
-              <li><strong>Calcule la moyenne</strong> : (2 + 4 + 6 + 8) / 4 = 5</li>
-              <li><strong>Soustrais la moyenne de chaque donnée</strong> \((x_i - \bar{x})\).</li>
-              <li><strong>Mets chaque écart au carré</strong> \((x_i - \bar{x})^2\).</li>
-              <li><strong>Additionne les carrés</strong>.</li>
-              <li><strong>Divise</strong> par \(N\) (population) ou par \(n - 1\) (échantillon). Ça donne la variance.</li>
-              <li><strong>Prends la racine carrée</strong>. Ça donne l'écart type.</li>
-            </ol>
-
-            <table class="w3-table w3-bordered w3-striped tableau-exemple">
-              <tr class="w3-theme-l2">
-                <th>\(x_i\)</th>
-                <th>\(x_i - \bar{x}\)</th>
-                <th>\((x_i - \bar{x})^2\)</th>
-              </tr>
-              <tr><td>2</td><td>−3</td><td>9</td></tr>
-              <tr><td>4</td><td>−1</td><td>1</td></tr>
-              <tr><td>6</td><td>1</td><td>1</td></tr>
-              <tr><td>8</td><td>3</td><td>9</td></tr>
-              <tr><td><strong>Total</strong></td><td></td><td><strong>20</strong></td></tr>
-            </table>
-
-            <ul style="margin-top:16px">
-              <li><strong>Population</strong> : variance = 20 / 4 = 5, donc \(\sigma = \sqrt{5} \approx 2{,}24\)</li>
-              <li><strong>Échantillon</strong> : variance = 20 / 3 ≈ 6,67, donc \(s = \sqrt{6{,}67} \approx 2{,}58\)</li>
-            </ul>
-            <p>Avec la technologie : dans Google Sheets, <code>=ECARTYPE()</code> pour un échantillon et <code>=ECARTYPEP()</code> pour une population. Dans Desmos, <code>stdev(L)</code> et <code>stdevp(L)</code>.</p>
-          </div>
-        </div>
-
-      </div>
+      <p>Pour calculer l'écart type, il faut :</p>
+      <ol>
+        <li>Calculer la moyenne des données.</li>
+        <li>Soustraire la moyenne de chaque donnée.</li>
+        <li>Mettre chaque résultat au carré.</li>
+        <li>Additionner tous les carrés.</li>
+        <li>Diviser par le nombre de données (ou par n − 1 si c'est un échantillon). Ça donne la variance.</li>
+        <li>Prendre la racine carrée de la variance.</li>
+      </ol>
+      <div class="formule w3-theme-l4" style="max-width:1000px">$$\sigma = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n}}$$</div>
 
       <h2 style="margin-top:40px">Google Slides sur ce cours</h2>
       <p>
