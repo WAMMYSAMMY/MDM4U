@@ -51,6 +51,32 @@
       font-size: 0.9rem;
       color: #555;
     }
+    .video-card {
+      max-width: 800px;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 16px;
+    }
+    .video-card h3 {
+      margin: 0;
+      padding: 12px 16px;
+      font-size: 18px;
+    }
+    .video-card iframe {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+    }
+    .boutons a {
+      margin: 0 8px 12px 0;
+    }
+    .partie {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 3px solid #009688;
+    }
   </style>
 
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -85,19 +111,21 @@
 
       <!-- Tu peux complètement modifier le contenu ci-dessous -->
 
-      <h1>La distribution normale</h1>
+      <!-- ===================== PARTIE A ===================== -->
+
+      <h1>2.4 A - La distribution normale</h1>
       <p>Une distribution normale a la forme d'une cloche. Elle est symétrique, et la moyenne, la médiane et le mode sont égaux. Environ 68 % des données sont à un écart type de la moyenne, 95 % à deux écarts types et 99,7 % à trois écarts types.</p>
 
       <img src="distribution-normale.png" alt="Courbe de la distribution normale avec les pourcentages pour chaque écart type" class="image-normale">
       <p class="source-image">Source de l'image : <a href="LIEN_DE_LA_SOURCE" target="_blank" rel="noopener">LIEN_DE_LA_SOURCE</a></p>
 
-      <h2 style="margin-top:40px">Exercices 2.4 - Partie 1 (avec technologie)</h2>
+      <h2 style="margin-top:40px">Exercices 2.4 A - Partie 1 (avec technologie)</h2>
       <p>Mes réponses complètes, avec les captures d'écran de Desmos et Google Sheets, sont dans mon document :</p>
       <p>
         <a href="https://docs.google.com/document/d/13N9lZGKPUanXM-_p6YUDc1pTyCUveleI_u3WmxcngCk/edit?usp=sharing"
            target="_blank" rel="noopener"
            class="w3-button w3-theme w3-round-large w3-large">
-          <i class="fa fa-file-text-o"></i> Exercices 2.4 partie 1 (Google Docs)
+          <i class="fa fa-file-text-o"></i> Exercices 2.4 A partie 1 (Google Docs)
         </a>
       </p>
 
@@ -121,17 +149,59 @@
 
       </div>
 
-      <h2 style="margin-top:40px">Exercices 2.4 - Partie 2 (sans technologie)</h2>
+      <h2 style="margin-top:40px">Exercices 2.4 A - Partie 2 (sans technologie)</h2>
       <p>Mon travail fait à la main sera ajouté ici bientôt.</p>
       <!-- Quand ton travail est numérisé, enlève la ligne ci-dessus et enlève les < !-- et -- > autour du bouton ci-dessous, puis colle ton lien à la place de LIEN_PARTIE_2 -->
       <!--
       <p>
         <a href="LIEN_PARTIE_2" target="_blank" rel="noopener"
            class="w3-button w3-theme w3-round-large w3-large">
-          <i class="fa fa-pencil"></i> Exercices 2.4 partie 2 (travail à la main)
+          <i class="fa fa-pencil"></i> Exercices 2.4 A partie 2 (travail à la main)
         </a>
       </p>
       -->
+
+      <!-- ===================== PARTIE B ===================== -->
+
+      <div class="partie">
+
+        <h1>2.4 B - L'écart réduit (cote z)</h1>
+        <p>L'écart réduit (ou cote z) montre à combien d'écarts types une donnée se trouve de la moyenne. Si z est positif, la donnée est au-dessus de la moyenne. Si z est négatif, elle est en dessous. La cote z permet aussi de comparer des données qui viennent de groupes différents.</p>
+
+        <h2 style="margin-top:32px">Vidéo sur l'écart réduit</h2>
+        <div class="video-card w3-card">
+          <h3 class="w3-theme-d1">Comprendre la cote Z en statistiques (CMaths1)</h3>
+          <iframe src="https://www.youtube.com/embed/ra4XaZzNrQM"
+                  title="Comprendre la cote Z en statistiques"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+        </div>
+
+        <h2 style="margin-top:40px">Liens utiles</h2>
+        <p class="boutons">
+          <a href="https://drive.google.com/file/d/1i96RvRYcdpm8U3uEDC9J-RqFFtf-M_0x/view?usp=sharing"
+             target="_blank" rel="noopener"
+             class="w3-button w3-theme w3-round-large">
+            <i class="fa fa-table"></i> Tableau des écarts réduits
+          </a>
+          <a href="https://www.desmos.com/calculator/jdgiqvxwum"
+             target="_blank" rel="noopener"
+             class="w3-button w3-theme w3-round-large">
+            <i class="fa fa-line-chart"></i> Calculs de distributions normales centrées réduites (Desmos)
+          </a>
+        </p>
+
+        <h2 style="margin-top:40px">Exercices 2.4 B</h2>
+        <p>Mes réponses aux exercices 2.4 B sont dans mon document :</p>
+        <p>
+          <a href="https://docs.google.com/document/d/1wS_eleZGlinIEWRVfJR5Y_fwSLS3Yuf02pegM9K5Flc/edit?usp=sharing"
+             target="_blank" rel="noopener"
+             class="w3-button w3-theme w3-round-large w3-large">
+            <i class="fa fa-file-text-o"></i> Exercices 2.4 B (Google Docs)
+          </a>
+        </p>
+
+      </div>
 
       <!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
 
