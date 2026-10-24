@@ -1,1 +1,276 @@
-a faire
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MDM4U - 2.3 Les mesures de dispersion</title>
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- KaTeX pour afficher les formules -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\(', right: '\\)', display: false}]});"></script>
+
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+    }
+    .w3-bar-block .w3-bar-item {
+      padding: 16px;
+      font-weight: bold;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 1000px;
+      margin-top: 24px;
+    }
+    .info-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .info-card h3 {
+      margin: 0;
+      padding: 12px 16px;
+      font-size: 18px;
+    }
+    .info-card .contenu {
+      padding: 8px 16px 16px;
+    }
+    .formule {
+      border-radius: 6px;
+      padding: 4px 12px;
+      margin: 8px 0;
+      overflow-x: auto;
+    }
+    .sous-titre {
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    .tableau-exemple {
+      max-width: 420px;
+    }
+    .sources {
+      padding-left: 0;
+    }
+    .sources li {
+      margin-bottom: 10px;
+      padding-left: 2em;
+      text-indent: -2em;
+      list-style: none;
+      word-break: break-word;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+  <!-- Barre de navigation -->
+  <div id="nav-placeholder"></div>
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("nav.html");
+    });
+  </script>
+  <!-- Fin de la barre de navigation -->
+
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+  <div class="w3-main" style="margin-left:250px;">
+
+    <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+      <p>
+        <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+        <span id="myIntro" class="w3-hide">MDM4U</span>
+      </p>
+    </div>
+
+    <header class="w3-container w3-theme" style="padding:64px 32px">
+      <h1 class="w3-xxxlarge">2.3 - Les mesures de dispersion</h1>
+    </header>
+
+    <div class="w3-container" style="padding:32px">
+
+      <!-- Tu peux complètement modifier le contenu ci-dessous -->
+
+      <h1>Les mesures de dispersion</h1>
+      <p>Les mesures de tendance centrale (moyenne, médiane, mode) nous disent où se trouve le « centre » des données. Mais elles ne disent pas si les données sont <strong>proches les unes des autres</strong> ou <strong>très étalées</strong>.</p>
+      <p>Les mesures de dispersion servent à mesurer à quel point les données sont <strong>dispersées</strong> (étalées). Par exemple, deux classes peuvent avoir la même moyenne de 70 %, mais dans une classe, toutes les notes sont entre 65 % et 75 %, alors que dans l'autre, elles vont de 30 % à 100 %. La dispersion nous permet de voir cette différence.</p>
+
+      <h2>Les méthodes de mesure de dispersion</h2>
+
+      <div class="info-grid">
+
+        <div class="info-card w3-card">
+          <h3 class="w3-theme-d1">L'étendue</h3>
+          <div class="contenu">
+            <p>L'étendue, c'est la différence entre la plus grande et la plus petite valeur. C'est la mesure de dispersion la plus simple.</p>
+            <div class="formule w3-theme-l4">$$\text{Étendue} = \text{valeur maximale} - \text{valeur minimale}$$</div>
+            <p>Par contre, elle utilise juste deux valeurs. Une seule valeur aberrante (très haute ou très basse) peut donc la rendre beaucoup plus grande.</p>
+          </div>
+        </div>
+
+        <div class="info-card w3-card">
+          <h3 class="w3-theme-d1">Les quartiles</h3>
+          <div class="contenu">
+            <p>Les quartiles séparent les données <strong>en ordre</strong> en quatre parties égales. Chaque partie contient environ 25 % des données.</p>
+            <ul>
+              <li><strong>Q1 (premier quartile)</strong> : la médiane de la moitié du bas. 25 % des données sont en dessous.</li>
+              <li><strong>Q2 (deuxième quartile)</strong> : la médiane de toutes les données. 50 % des données sont en dessous.</li>
+              <li><strong>Q3 (troisième quartile)</strong> : la médiane de la moitié du haut. 75 % des données sont en dessous.</li>
+            </ul>
+            <p>Si le nombre de données est impair, on ne met pas la médiane (Q2) dans les moitiés quand on calcule Q1 et Q3.</p>
+          </div>
+        </div>
+
+        <div class="info-card w3-card">
+          <h3 class="w3-theme-d1">L'écart interquartile</h3>
+          <div class="contenu">
+            <p>L'écart interquartile (ou intervalle interquartile), c'est la différence entre le troisième et le premier quartile. Il mesure l'étendue des 50 % des données du milieu.</p>
+            <div class="formule w3-theme-l4">$$\text{Écart interquartile} = Q_3 - Q_1$$</div>
+            <p>Comme il ignore le 25 % le plus bas et le 25 % le plus haut, il n'est presque pas affecté par les valeurs aberrantes. C'est pour ça qu'il est souvent plus fiable que l'étendue.</p>
+          </div>
+        </div>
+
+        <div class="info-card w3-card">
+          <h3 class="w3-theme-d1">L'écart type</h3>
+          <div class="contenu">
+            <p>L'écart type mesure, en moyenne, à quelle distance les données sont de la moyenne.</p>
+            <ul>
+              <li><strong>Petit écart type</strong> : les données sont regroupées proche de la moyenne.</li>
+              <li><strong>Grand écart type</strong> : les données sont très étalées.</li>
+            </ul>
+            <p>Contrairement à l'étendue et aux quartiles, l'écart type utilise <strong>toutes</strong> les données. La <strong>variance</strong>, c'est l'écart type au carré.</p>
+            <p>On utilise \(\sigma\) pour une <strong>population</strong> et \(s\) pour un <strong>échantillon</strong>.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <h2 style="margin-top:40px">Comment calculer l'écart type?</h2>
+
+      <div class="info-grid">
+
+        <div class="info-card w3-card">
+          <h3 class="w3-theme-d1">Les formules</h3>
+          <div class="contenu">
+            <p class="sous-titre">Population :</p>
+            <div class="formule w3-theme-l4">$$\sigma = \sqrt{\frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}}$$</div>
+
+            <p class="sous-titre">Échantillon :</p>
+            <div class="formule w3-theme-l4">$$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}$$</div>
+
+            <p>où :</p>
+            <ul>
+              <li>\(\sigma\) ou \(s\) = l'écart type</li>
+              <li>\(x_i\) = chaque donnée</li>
+              <li>\(\mu\) ou \(\bar{x}\) = la moyenne</li>
+              <li>\(N\) ou \(n\) = le nombre de données</li>
+            </ul>
+            <p>Pour un échantillon, on divise par \(n - 1\) au lieu de \(n\).</p>
+          </div>
+        </div>
+
+        <div class="info-card w3-card">
+          <h3 class="w3-theme-d1">Les étapes (exemple : 2, 4, 6, 8)</h3>
+          <div class="contenu">
+            <ol>
+              <li><strong>Calcule la moyenne</strong> : (2 + 4 + 6 + 8) / 4 = 5</li>
+              <li><strong>Soustrais la moyenne de chaque donnée</strong> \((x_i - \bar{x})\).</li>
+              <li><strong>Mets chaque écart au carré</strong> \((x_i - \bar{x})^2\).</li>
+              <li><strong>Additionne les carrés</strong>.</li>
+              <li><strong>Divise</strong> par \(N\) (population) ou par \(n - 1\) (échantillon). Ça donne la variance.</li>
+              <li><strong>Prends la racine carrée</strong>. Ça donne l'écart type.</li>
+            </ol>
+
+            <table class="w3-table w3-bordered w3-striped tableau-exemple">
+              <tr class="w3-theme-l2">
+                <th>\(x_i\)</th>
+                <th>\(x_i - \bar{x}\)</th>
+                <th>\((x_i - \bar{x})^2\)</th>
+              </tr>
+              <tr><td>2</td><td>−3</td><td>9</td></tr>
+              <tr><td>4</td><td>−1</td><td>1</td></tr>
+              <tr><td>6</td><td>1</td><td>1</td></tr>
+              <tr><td>8</td><td>3</td><td>9</td></tr>
+              <tr><td><strong>Total</strong></td><td></td><td><strong>20</strong></td></tr>
+            </table>
+
+            <ul style="margin-top:16px">
+              <li><strong>Population</strong> : variance = 20 / 4 = 5, donc \(\sigma = \sqrt{5} \approx 2{,}24\)</li>
+              <li><strong>Échantillon</strong> : variance = 20 / 3 ≈ 6,67, donc \(s = \sqrt{6{,}67} \approx 2{,}58\)</li>
+            </ul>
+            <p>Avec la technologie : dans Google Sheets, <code>=ECARTYPE()</code> pour un échantillon et <code>=ECARTYPEP()</code> pour une population. Dans Desmos, <code>stdev(L)</code> et <code>stdevp(L)</code>.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <h2 style="margin-top:40px">Google Slides sur ce cours</h2>
+      <p>
+        <a href="https://docs.google.com/presentation/d/1tXPZIZGQORBiqncTZE7DXeNAXTLYVB5rUZZRTPkWiaU/edit?usp=sharing"
+           target="_blank" rel="noopener"
+           class="w3-button w3-theme w3-round-large w3-large">
+          <i class="fa fa-television"></i> Les mesures de dispersion (Google Slides)
+        </a>
+      </p>
+
+      <h2 style="margin-top:40px">Lien vers exercices</h2>
+      <p>
+        <a href="https://docs.google.com/document/d/1C14MeLrgc6Z4MH-zXldxOfxbNXE-XESv/edit?usp=sharing&ouid=104094683412534702554&rtpof=true&sd=true"
+           target="_blank" rel="noopener"
+           class="w3-button w3-theme w3-round-large w3-large">
+          <i class="fa fa-file-text-o"></i> Exercices 2.3 (Google Docs)
+        </a>
+      </p>
+
+      <h2 style="margin-top:40px">Liste des sources utilisées</h2>
+      <ul class="sources">
+        <li><em>Les mesures de dispersion (la variance et l'écart-type)</em> [Présentation Google Slides]. (2026). https://docs.google.com/presentation/d/1tXPZIZGQORBiqncTZE7DXeNAXTLYVB5rUZZRTPkWiaU/edit?usp=sharing</li>
+        <li>Statistique Canada. (2021, 2 septembre). <em>4.5.1 Calculer l'étendue et l'écart interquartile</em>. https://www150.statcan.gc.ca/edu/power-pouvoir/ch12/5214890-fra.htm</li>
+        <li>Statistique Canada. (2021, 2 septembre). <em>4.5.3 Calculer la variance et l'écart-type</em>. https://www150.statcan.gc.ca/edu/power-pouvoir/ch12/5214891-fra.htm</li>
+      </ul>
+
+      <!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+
+    </div>
+
+    <footer class="w3-container w3-theme" style="padding:32px">
+      <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    window.onscroll = function () { myFunction(); };
+    function myFunction() {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
+        document.getElementById("myIntro").classList.add("w3-show-inline-block");
+      } else {
+        document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+        document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+      }
+    }
+  </script>
+
+</body>
+</html>
